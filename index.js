@@ -104,13 +104,16 @@ async function displayTable(movies, year, length) {
         table.append(row);
     }
 
-    table.classList.toggle('hidden');
+    table.classList.remove('hidden');
+    table.classList.add('shown');
     document.querySelector('#message').classList.add('hidden');
+    document.querySelector('#message').classList.remove('shown');
 }
 
 function tableDisplay(message) {//displays when no result is found
     document.querySelector('#movie-table').classList.add('hidden');
     const table = document.querySelector('#message');
     table.classList.remove('hidden');
+    table.classList.add('shown');
     table.innerHTML = `<h1>${message}</h1>`;
 }

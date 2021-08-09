@@ -74,6 +74,12 @@ main h1 {
     opacity: 100%;
     transition: opacity .75s;
 }
+@media screen and (max-width: 710px) {
+    .search {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 #message {
     position: absolute;
@@ -102,9 +108,15 @@ main h1 {
     font-size: 1.2rem;
     padding: .5vh;
 }
-.hidden {
-    visibility: hidden;
+.shown {
+    opacity: 100;
+    transition: opacity .5s;
 }
+.hidden {
+    opacity: 0;
+    transition: opacity .25s;
+}
+
 
 /*footer styling*/
 footer {
