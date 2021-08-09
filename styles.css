@@ -1,0 +1,119 @@
+/*global styling*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    --main-bg-color: #3d8dad;
+    --main-header-color: #faf257;
+    --small-text-color: #187493;
+    --second-header-color: #fa889e;
+}
+h1 {
+    font-family: 'Limelight', sans-serif;
+}
+input {
+    font-family: 'Robot', sans-serif;
+}
+
+
+/*header styling*/
+header {
+    background-color: var(--main-bg-color);
+    color: var(--main-header-color);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+header h1 {
+    margin-left: 2vw;
+}
+
+/*main styling*/
+main {
+    min-height: 85vh;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+main h1 {
+    color: var(--second-header-color);
+}
+@media screen and (max-width: 1000px) {
+    main h1 {
+        margin-left: 2vw;
+    }
+    .search, .movies {
+        margin: 0 2vw;
+    }
+}
+
+.search {
+    display: inline;
+}
+.search, .search input, .search select {
+    font-size: 1.25rem;
+}
+.search input {
+    width: 5rem;
+}
+.search button {
+    height: 2rem;
+    font-size: 1.25rem;
+    padding: 0 .2rem;
+}
+.tooltip {/*tooltip fades out*/
+    margin-left: 2vw;
+    display: block;
+    opacity: 0%;
+    transition: opacity .75s;
+    font-size: .8rem;
+}
+.search:hover .tooltip, h1:hover ~ .search .tooltip {
+    opacity: 100%;
+    transition: opacity .75s;
+}
+
+#message {
+    position: absolute;
+}
+
+#movie-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#movie-table tr:nth-child(even) {
+ background-color: #efefef;
+}
+#movie-table tr:hover {
+    background-color: #7cb7ca;
+}
+#movie-table th {
+    background-color: var(--second-header-color);
+    color: #3f4100;
+    padding: 1vh 0;
+    text-align: left;
+    padding-left: 1vw;
+}
+#movie-table td {
+    text-align: left;
+    padding-left: 1vw;
+    font-size: 1.2rem;
+    padding: .5vh;
+}
+.hidden {
+    visibility: hidden;
+}
+
+/*footer styling*/
+footer {
+    height: 5vh;
+    background-color: var(--main-bg-color);
+    color: var(--main-header-color);
+    display: flex;
+    align-items: center;
+}
+footer p {
+    margin-left: 2vw;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ratings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Movie Reviews</h1>
+    </header>
+    <main>
+        <h1>Search Movie Type</h1>
+        <div class="search">
+            <label for="genres">Genre
+                <select name="genres" id="genres">
+                    <option value="all">All</option>
+                </select>
+            </label> 
+            <label for="year">Year
+                <input id="year" type="number" pattern="[0-9]{3}">
+            </label>
+            <button id="submit" type="button">Show Movies</button>
+            <label for="numResults">Number of Results
+                <select id="numResults">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="all">All</option>
+                </select>
+            </label>
+            <div class="tooltip">
+                <span class="tooltiptext">Search by genre, year, or both. Leave Year empty to search by any year.</span>
+            </div>
+        </div>
+        <div class="movies">
+            <h1 id="message" class="hidden"></h1>
+            <table id="movie-table" class="hidden">
+                <tr>
+                    <th>Title</th>
+                    <th>Release Year</th>
+                    <th>Content Rating</th>
+                    <th>Critical Rating</th>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>Jacob Patton &copy; 2021</p>
+    </footer>
+</body>
+</html>
