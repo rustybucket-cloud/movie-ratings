@@ -35,8 +35,9 @@ async function loadMovies() {//fetches movie data based on user input
         return;
     }
     const movies = await fetchMovies(search);
-    if (movies[objectResult].length !== 0) {
-        displayTable(movies[objectResult], year);
+    const length = movies[objectResult].length;
+    if (length !== 0) {
+        displayTable(movies[objectResult], year, length);
     }
     else {
         tableDisplay('No Results Found. Try Again.');
@@ -58,7 +59,7 @@ async function fetchMovies(search) {
     return moviesJSON;
 }
 
-async function displayTable(movies, year) {
+async function displayTable(movies, year, length) {
     const table = document.querySelector('#movie-table');
     table.innerHTML = '';
     const header = document.createElement('tr');
@@ -77,6 +78,9 @@ async function displayTable(movies, year) {
     }
     else {
         numResults = parseInt(numResults);
+        if (length < numResults) {//if the number of movies is lower than numResults, numResults becomes equal to the number of movies
+            numResults = length;
+        }
     }
     for(let i=0; i < numResults; i++) {
         const imdbData = await fetch(`https://data-imdb1.p.rapidapi.com/movie/id/${movies[i].imdb_id}/`, {
@@ -85,7 +89,7 @@ async function displayTable(movies, year) {
                 "x-rapidapi-key": "c90b245b31msh46b59787848177ap15892cjsne103b05ba7a8",
                 "x-rapidapi-host": "data-imdb1.p.rapidapi.com"
             }
-            });
+            }).catch(err => console.log(err));
         const imdbJSON = await imdbData.json();
         const movieStats = imdbJSON[movies[i].title];
         const row = document.createElement('tr');
