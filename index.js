@@ -30,7 +30,7 @@ async function loadMovies() {//fetches movie data based on user input
         search = `byYear/${year}`;
         objectResult = `Movies ${year}`;
     }
-    else if (genre === 'all' && year === '') {//search by genre
+    else if (genre === 'all' && year === '') {//no search input
         alert('Please search by genre or year.');
         return;
     }
@@ -47,6 +47,7 @@ async function loadMovies() {//fetches movie data based on user input
 document.querySelector('#submit').addEventListener('click',loadMovies);
 
 //fetches data from https://rapidapi.com/SAdrian/api/data-imdb1/ and returns json
+//use of fetch from an API
 async function fetchMovies(search) {
     let moviesData = await fetch(`https://data-imdb1.p.rapidapi.com/movie/${search}/`, {
 	"method": "GET",
