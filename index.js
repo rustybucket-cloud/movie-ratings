@@ -1,9 +1,7 @@
 //use of import
 import { fillSelect } from "./fillSelect.js";
-
 const genreSelect = document.querySelector('#genres');
 export const genres = ['Action','Adventure','Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy','Film Noir','History','Horror','Musical','Mystery','Romance','Sci-Fi','Sport','Thriller','War','Western'];
-
 document.addEventListener('DOMContentLoaded', fillSelect(genres, genreSelect));//loads the genres in the select
 
 async function loadMovies() {//fetches movie data based on user input
@@ -64,6 +62,8 @@ async function displayTable(movies, year, length) {
     const table = document.querySelector('#movie-table');
     table.innerHTML = '';
     const header = document.createElement('tr');
+
+    //use of template literals
     const headerHTML = `
         <th>Title</th>
         <th>Release Year</th>
@@ -83,7 +83,10 @@ async function displayTable(movies, year, length) {
             numResults = length;
         }
     }
+
+    //use of loop to iterate through an array, I used a for loop instead of forEach to be able to limit the amount of results
     for(let i=0; i < numResults; i++) {
+        //use of arrays and objects with data returned from fetch
         const imdbData = await fetch(`https://data-imdb1.p.rapidapi.com/movie/id/${movies[i].imdb_id}/`, {
             "method": "GET",
             "headers": {
